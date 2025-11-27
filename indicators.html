@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fear & Greed Index</title>
+    <title>Bitcoin Indicators</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/navigation.css">
-    <link rel="stylesheet" href="css/fear_greed.css">
+    <link rel="stylesheet" href="css/indicators.css">
 </head>
 
 <body>
@@ -27,27 +29,26 @@
             <img src="svg/sol-svgrepo-com.svg" alt="Solana" class="crypto-icon">
         </a>
         <div class="nav-divider"></div>
-        <a href="fear_greed.html" class="nav-link active" title="Fear & Greed">
+        <a href="fear_greed.html" class="nav-link" title="Fear & Greed">
             <i class="fa-solid fa-face-meh"></i>
         </a>
-        <a href="indicators.html" class="nav-link" title="Indicators">
+        <a href="indicators.html" class="nav-link active" title="Indicators">
             <img src="svg/bullfight-svgrepo-com.svg" alt="Indicators" class="crypto-icon">
         </a>
     </nav>
 
-    <div class="orb-container">
-        <div class="orb"></div>
+    <div class="loading-overlay">
+        <div class="loader"></div>
     </div>
 
-    <div class="content">
-        <div class="label">Bitcoin Fear & Greed</div>
-        <div class="value" id="value">--</div>
-        <div class="status" id="status">Loading...</div>
-    </div>
+    <main class="indicators-container">
+        <div class="bento-grid">
+            <!-- Injected via JS -->
+        </div>
+    </main>
 
-    <div class="noise"></div>
-
-    <script src="js/fear_greed.js"></script>
+    <script src="js/indicators.js"></script>
+    <script src="js/indicators_ui.js"></script>
 </body>
 
 </html>

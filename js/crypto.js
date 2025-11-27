@@ -49,7 +49,6 @@ function connect(symbol) {
 
     const pair = symbol + 'usdt';
     let streamPair = pair;
-    if (symbol === 'usdt') streamPair = 'usdcusdt';
 
     ws = new WebSocket(`wss://stream.binance.com:9443/ws/${streamPair}@trade`);
 
@@ -86,7 +85,6 @@ const names = {
     'btc': 'Bitcoin',
     'eth': 'Ethereum',
     'sol': 'Solana',
-    'usdt': 'Tether (USDC Pair)'
 };
 symbolNameElement.innerText = names[currentSymbol];
 
