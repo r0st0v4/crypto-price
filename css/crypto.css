@@ -1,0 +1,128 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --transition-speed: 1.5s;
+
+    /* Default / Mortuary */
+    --theme-color: #ff3b30;
+    --vignette-opacity: 0.8;
+    --fog-opacity: 0.4;
+}
+
+body.paradise {
+    --theme-color: #00ff9d;
+    --vignette-opacity: 0.3;
+    --fog-opacity: 0.1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: background-color var(--transition-speed);
+}
+
+/* Canvas */
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Content */
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    mix-blend-mode: difference;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 1rem;
+    transition: opacity 0.5s;
+}
+
+#price {
+    font-size: 12vw;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+    transition: color var(--transition-speed);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.currency {
+    font-size: 2vw;
+    vertical-align: super;
+    opacity: 0.5;
+    margin-left: 0.5rem;
+}
+
+/* Effects */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.1) 50%,
+            rgba(0, 0, 0, 0.1));
+    background-size: 100% 4px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 50%, black 150%);
+    z-index: 9;
+    pointer-events: none;
+    transition: opacity var(--transition-speed);
+    opacity: var(--vignette-opacity);
+}
+
+.fog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjUiLz48L3N2Zz4=');
+    z-index: 8;
+    opacity: var(--fog-opacity);
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    transition: opacity var(--transition-speed);
+}

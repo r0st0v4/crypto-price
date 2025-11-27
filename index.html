@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Real-Time</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/crypto.css">
+</head>
+
+<body class="mortuary">
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <a href="index.html?crypto=btc" class="nav-link active" data-crypto="btc" title="Bitcoin">
+            <i class="fa-brands fa-bitcoin"></i>
+        </a>
+        <a href="index.html?crypto=eth" class="nav-link" data-crypto="eth" title="Ethereum">
+            <i class="fa-brands fa-ethereum"></i>
+        </a>
+        <a href="index.html?crypto=sol" class="nav-link" data-crypto="sol" title="Solana">
+            <img src="svg/sol-svgrepo-com.svg" alt="Solana" class="crypto-icon">
+        </a>
+        <a href="index.html?crypto=usdt" class="nav-link" data-crypto="usdt" title="Tether">
+            <img src="svg/usdt-svgrepo-com.svg" alt="Tether" class="crypto-icon">
+        </a>
+        <div class="nav-divider"></div>
+        <a href="fear_greed.html" class="nav-link" title="Fear & Greed">
+            <i class="fa-solid fa-face-meh"></i>
+        </a>
+    </nav>
+
+    <div id="canvas-container">
+        <canvas id="chart"></canvas>
+    </div>
+
+    <div class="content">
+        <h1 id="symbol-name">Bitcoin</h1>
+        <div id="price">Loading...<span class="currency">USD</span></div>
+    </div>
+
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+    <div class="fog"></div>
+
+    <script src="js/crypto.js"></script>
+</body>
+
+</html>

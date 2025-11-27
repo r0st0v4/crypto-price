@@ -1,0 +1,161 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #ffffff;
+    --orb-color: #888;
+    --accent-color: #888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Outfit', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: background-color 2s ease;
+}
+
+/* Orb Visualization */
+.orb-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.orb {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--orb-color), transparent 70%);
+    filter: blur(60px);
+    opacity: 0.6;
+    transition: background 2s ease, transform 0.5s ease;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+}
+
+@keyframes jitter {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(-5px, 5px) scale(0.98);
+    }
+
+    50% {
+        transform: translate(5px, -5px) scale(1.02);
+    }
+
+    75% {
+        transform: translate(-5px, -5px) scale(0.99);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+body.greed .orb {
+    animation: pulse 4s infinite ease-in-out;
+}
+
+body.fear .orb {
+    animation: jitter 0.2s infinite linear;
+}
+
+/* Content */
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    mix-blend-mode: difference;
+}
+
+.label {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.5s;
+}
+
+.value {
+    font-size: 25vw;
+    font-weight: 800;
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    opacity: 0;
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+}
+
+.status {
+    font-size: 3rem;
+    font-weight: 200;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.8s;
+    text-transform: uppercase;
+}
+
+/* Noise Overlay */
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjUiLz48L3N2Zz4=');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

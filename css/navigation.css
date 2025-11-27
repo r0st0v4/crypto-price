@@ -1,0 +1,92 @@
+/* Top Navigation Bar */
+.top-nav {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.top-nav:hover {
+    background: rgba(0, 0, 0, 0.95);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.nav-link i {
+    font-size: 1.5rem;
+}
+
+.nav-link img.crypto-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover img.crypto-icon,
+.nav-link.active img.crypto-icon {
+    opacity: 1;
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.2);
+}
+
+.nav-link.active {
+    color: #ffffff;
+}
+
+.nav-divider {
+    width: 1px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .top-nav {
+        width: 90%;
+        gap: 1rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+    }
+
+    .nav-link i {
+        font-size: 1.2rem;
+    }
+
+    .nav-link img.crypto-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
